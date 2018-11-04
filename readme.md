@@ -15,3 +15,7 @@ mkdir -p subset/train
 ls food-101/images | head | xargs -I {}  cp -r food-101/images/{}  subset/train
 
 ```
+
+
+
+# Deploy
