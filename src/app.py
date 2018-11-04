@@ -15,7 +15,7 @@ app = Flask(__name__)
 
 
 def load_model(classes:List[str] , path="." ,model_name="final"
-               , architecture= models.resnet34
+               , architecture= models.resnet50
                , image_size=224)->ClassificationLearner:
 
     data = ImageDataBunch.single_from_classes(path, classes
@@ -39,13 +39,13 @@ def load_image_bytes(raw_bytes:ByteString)->Image:
 
 def predict(img)->List[Dict]:
     pred_class,pred_idx,losses = model.predict(img)
-    payload = []
+    predictions = []
     for image_class, loss in zip (model.data.classes, losses.tolist()):
-        payload.append(
+        predictions.append(
             {"class":image_class, "loss":loss}
         )
     
-    return payload
+    return {"class":pred_class, "predictions":predictions}
 
 @app.route('/classify', methods=['POST','GET'])
 def upload_file():
@@ -55,18 +55,16 @@ def upload_file():
     else:
         bytes = flask.request.files['file'].read()
         img = load_image_bytes(bytes)
-    predictions = predict(img)
-    return flask.jsonify(predictions=predictions)    
+    res = predict(img)
+    return flask.jsonify(res)    
 
 @app.route('/')
 def index():
     return flask.render_template('index.html')
 
-@app.route('/pretty')
-def pretty():
-    return flask.render_template('pretty.html')
 
-with open('../models/classes.txt', 'r') as filehandle:  
+
+with open('models/classes.txt', 'r') as filehandle:  
     CLASSES = json.load(filehandle)
 model = load_model(CLASSES)
 

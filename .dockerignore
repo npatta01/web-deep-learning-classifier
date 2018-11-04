@@ -1,0 +1,4 @@
+data/
+models/
+!models/classes.txt
+!models/final.pth
