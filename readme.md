@@ -19,6 +19,10 @@ ls food-101/images | head | xargs -I {}  cp -r food-101/images/{}  subset/train
 
 
 # Deploy
+
+##
+
+## Heroku Setup
 ```
 wget -qO- https://cli-assets.heroku.com/install-ubuntu.sh | sh
 heroku login
@@ -38,4 +42,7 @@ heroku logs --tail
 ```
 INSTANCE_NAME=dl
 gcloud compute --project np-training ssh --zone=$ZONE ubuntu@$INSTANCE_NAME -- -L 8080:localhost:8080 -L 5000:localhost:5000
+
+docker build -it app .
+docker run -it app -p 5000:5000
 ```
