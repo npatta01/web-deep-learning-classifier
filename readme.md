@@ -16,6 +16,14 @@ ls food-101/images | head | xargs -I {}  cp -r food-101/images/{}  subset/train
 
 ```
 
+# Upload Model
+```
+gsutil -m cp -r models/* gs://np-training-private/models/food101/
+rm -rf models
+mkdir -p models
+gsutil -m cp -r gs://np-training-private/models/food101/ models/
+
+```
 
 
 # Deploy
@@ -28,7 +36,7 @@ wget -qO- https://cli-assets.heroku.com/install-ubuntu.sh | sh
 heroku login
 heroku container:login
 
-APP_NAME="np-img-classifier"
+APP_NAME="np-food-classifier"
 heroku create $APP_NAME
 
 heroku container:push web --app ${APP_NAME}
