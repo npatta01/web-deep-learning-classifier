@@ -37,17 +37,20 @@ def load_image_bytes(raw_bytes:ByteString)->Image:
 
 
 
-def predict(img)->List[Dict]:
+def predict(img, n:int = 3)->List[Dict]:
     pred_class,pred_idx,losses = model.predict(img)
     predictions = []
     for image_class, loss in zip (model.data.classes, losses.tolist()):
         predictions.append(
             {"class":image_class, "loss":loss}
         )
+
     
+    predictions = sorted(predictions, key=lambda x: x["loss"], reverse=True)
+    predictions = predictions[0:n]
     return {"class":pred_class, "predictions":predictions}
 
-@app.route('/classify', methods=['POST','GET'])
+@app.route('/api/classify', methods=['POST','GET'])
 def upload_file():
     if flask.request.method == 'GET':
         url = flask.request.args.get("url")
@@ -57,6 +60,14 @@ def upload_file():
         img = load_image_bytes(bytes)
     res = predict(img)
     return flask.jsonify(res)    
+
+@app.route('/api/classes', methods=['GET'])
+def classes():
+    return flask.jsonify(CLASSES)  
+
+@app.route('/ping', methods=['GET'])
+def ping():
+    return "pong"
 
 @app.route('/')
 def index():

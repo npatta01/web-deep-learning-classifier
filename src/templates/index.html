@@ -4,13 +4,13 @@
     
 </head>
 
-<form action="/classify" method="post" enctype="multipart/form-data">
+<form action="/api/classify" method="post" enctype="multipart/form-data">
             Select image to upload:
             <input type="file" name="file">
             <input type="submit"  value="Upload Image">
 </form>
         Or submit a URL:
-<form action="/classify" method="get">
+<form action="/api/classify" method="get">
             <input type="url" name="url">
             <input type="submit"  value="Fetch and analyze image">
 </form>
