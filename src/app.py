@@ -63,7 +63,8 @@ def upload_file():
 
 @app.route('/api/classes', methods=['GET'])
 def classes():
-    return flask.jsonify(CLASSES)  
+    classes = sorted(CLASSES)
+    return flask.jsonify(classes)  
 
 @app.route('/ping', methods=['GET'])
 def ping():
