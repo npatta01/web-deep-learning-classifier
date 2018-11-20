@@ -51,7 +51,6 @@ def predict(img, n:int = 3)->List[Dict]:
     return {"class":pred_class, "predictions":predictions}
 
 @app.route('/api/classify', methods=['POST','GET'])
-@app.route('/classify', methods=['POST','GET'])
 def upload_file():
     if flask.request.method == 'GET':
         url = flask.request.args.get("url")
@@ -63,7 +62,6 @@ def upload_file():
     return flask.jsonify(res)    
 
 @app.route('/api/classes', methods=['GET'])
-@app.route('/classes', methods=['GET'])
 def classes():
     return flask.jsonify(CLASSES)  
 
