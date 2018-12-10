@@ -41,6 +41,7 @@ def predict(img, n:int = 3)->List[Dict]:
     pred_class,pred_idx,losses = model.predict(img)
     predictions = []
     for image_class, loss in zip (model.data.classes, losses.tolist()):
+        loss = round(loss,1)
         predictions.append(
             {"class":image_class, "loss":loss}
         )
