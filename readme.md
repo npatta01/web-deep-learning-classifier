@@ -36,7 +36,7 @@ wget -qO- https://cli-assets.heroku.com/install-ubuntu.sh | sh
 heroku login
 heroku container:login
 
-APP_NAME="np-food-classifier"
+APP_NAME="food-img-classifier"
 heroku create $APP_NAME
 
 heroku container:push web --app ${APP_NAME}
