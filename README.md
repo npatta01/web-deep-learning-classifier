@@ -14,7 +14,7 @@ The following were used for model **deployment**:
 
 ## Table of Contents
 1.  [Training the Model](docs/1_training.md) using fastai:  [food classifier notebook](https://github.com/npatta01/food-classifier/blob/master/notebooks/1_train_large.ipynb)
-2.  [Deploying the App on Heroku](2_heroku_app.md):  our web app is [food-img-classifier.herokuapp.com](https://food-img-classifier.herokuapp.com)
+2.  [Deploying the App on Heroku](2_heroku_app.md):  our web app is [**food-img-classifier.herokuapp.com**](https://food-img-classifier.herokuapp.com)
 3.  Deploying a Mobile App, see this repo:  [npatta01/mobile-deep-learning-classifier](https://github.com/npatta01/mobile-deep-learning-classifier)
 
 
