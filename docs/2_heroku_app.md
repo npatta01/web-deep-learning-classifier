@@ -1,5 +1,8 @@
 # Heroku Web App
 
+
+ 
+ 
 Test running the web app
 ```
 docker build -it app .
@@ -25,10 +28,7 @@ It is best to use a framework which is **asynchronous** because it can handle **
 
 In this article, we provide instructions on using the Flask framework that is deployed on Heroku.
 
-### Our Flask Web Application
-https://food-img-classifier.herokuapp.com
 
- 
 ## Heroku Setup
 ```
 wget -qO- https://cli-assets.heroku.com/install-ubuntu.sh | sh
@@ -45,3 +45,6 @@ heroku open --app $APP_NAME
 heroku logs --tail --app ${APP_NAME}
 ```
  
+## Our Flask Web Application
+https://food-img-classifier.herokuapp.com
+
