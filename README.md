@@ -43,7 +43,7 @@ The model took about an hour to run on GCP.  The GPU type used was Nvidia Tesla 
 
 ## Training the Deep Learning Model
 The code used for training the data is available in the repository [npatta01/food-classifier](https://github.com/npatta01/food-classifier).  
-The [fastai](https://github.com/fastai) deep learning library, which runs on top of PyTorch, was utilized.  Other libraries, such as Keras or TensorFlow can be used to run your model. 
+The [fastai](https://github.com/fastai) deep learning library, which runs on top of PyTorch, was utilized.  
 
 ## Output from the Deep Learning Model
 The output of the deep learning model is a file with weights.  The file is called `model.pth` (or `final.pth`) which is stored under "releases" area of the repository because of its size:  https://github.com/npatta01/food-classifier/releases
