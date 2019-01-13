@@ -56,6 +56,8 @@ The output of the deep learning model is a file with weights.  The file is calle
 
 
 ### Upload model to GitHub repo
+If you train the model as in this repo, the model is saved to the `models` folder.  Download the `final.pth` to your local computer.  In your GitHub project repo, 
+.gitignore is set up to not upload the final.pth file 
 This code is run where? on GCP?  what is "np-training-private"?
 ```
 gsutil -m cp -r models/* gs://np-training-private/models/food101/
