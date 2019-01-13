@@ -13,8 +13,8 @@ This is what was used for model **deployment**:
  
 
 ## Table of Contents
-1.  [Training the Model](docs/1_training.md)
-2.  [Deploying the Heroku App](2_heroku.md)
+1.  [Training the Model](docs/1_training.md) using fastai
+2.  [Deploying the Heroku App](2_heroku_app.md)
 3.  To Deploy a Mobile App, see [mobile-deep-learning-classifier](https://github.com/npatta01/mobile-deep-learning-classifier)
 
 
