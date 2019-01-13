@@ -34,12 +34,6 @@ The `tar.gz` file can be opened using:
 tar xvzf file.tar.gz
 ```
 
-#### Create directories for data
-Creates a separate directory for each label of the data:
-```
-mkdir -p subset/train
-ls food-101/images | head | xargs -I {}  cp -r food-101/images/{}  subset/train
-```
 
 ## Model Analysis on Google Cloud Platform (GCP)
 The data was retrieved and analyzed on GCP.  Any cloud platform (such as Paperspace or AWS) is usable, as long as a GPU is available.  Instructions for setting up a GPU working environment will be available from fastai.  The MOOC will be officially released to the public in early 2019.
