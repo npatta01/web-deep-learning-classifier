@@ -1,35 +1,20 @@
-# Heroku Web App
+# Heroku Web App Deployment
 
+[Heroku](https://www.heroku.com/) was utilized to deploy the app on both web and mobile.
+
+### Input to Heroku App
+This output file, `model.pth` will be the input to the heroku app.  
 
  
- 
-Test running the web app
+### Test running the web app
+This Docker image contains Python 3, Flask and fastai.
 ```
 docker build -it app .
 docker run -it app -p 5000:5000
 ```
 
-### fastai code
-Note to RS:  add snippets of code to share.
-
-This output file, `model.pth` will be the input to the heroku app.  
-
----
-
-# Deployment
-
-## Using Heroku for Deployment
-[Heroku](https://www.heroku.com/) was utilized to deploy the app on both web and mobile.  
-
-## Using Flask for Python Web Framework
-- [Flask](http://flask.pocoo.org/) is a [WSGI](https://en.wikipedia.org/wiki/Web_Server_Gateway_Interface).   
-
-It is best to use a framework which is **asynchronous** because it can handle **multiple requests** at a time.
-
-In this article, we provide instructions on using the Flask framework that is deployed on Heroku.
-
-
 ## Heroku Setup
+If you don't have a Heroku account, create one here: https://www.heroku.com/ 
 ```
 wget -qO- https://cli-assets.heroku.com/install-ubuntu.sh | sh
 heroku login
