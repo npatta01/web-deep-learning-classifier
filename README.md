@@ -1,4 +1,4 @@
-# Training the Image Classifier
+# Part 1:  Training the Image Classifier & Creating a Web App
 
 This project was completed jointly by [Nidhin Pattaniyil](https://www.linkedin.com/in/nidhinpattaniyil/) and [Reshama Shaikh](https://reshamas.github.io).
 
@@ -10,8 +10,7 @@ This is what was used for model **training**:
 This is what was used for model **deployment**:    
 - Heroku
 - Flask
-- Expo
-- Xcode simulator (optional)
+ 
 
 ## Overview Diagram
 
