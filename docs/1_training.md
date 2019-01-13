@@ -34,6 +34,10 @@ The [fastai](https://github.com/fastai) deep learning library, which runs on top
 ## Output from the Deep Learning Model
 The output of the deep learning model is a file with weights.  The file is called `model.pth` (or `final.pth`) which is stored under "releases" area of the repository because of its size:  https://github.com/npatta01/food-classifier/releases
 
+The `model.pth` file may be too large to be included the commit.  Options for dealing with that:  
+1.  Store the model on google drive.
+2.  Store the model on GitHub releases.
+3.  Store the model on bucket in the cloud.  
 
 ### Upload model to GitHub repo
 If you train the model as in this repo, the model is saved to the `models` folder.  If not, you can ownload the `final.pth` to your local computer.  
