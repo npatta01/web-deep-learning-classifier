@@ -1,20 +1,21 @@
 # Heroku Web App Deployment
 
-[Heroku](https://www.heroku.com/) was utilized to deploy the app on both web and mobile.
+[Heroku](https://www.heroku.com/) was utilized to deploy the web app.
 
 ### Input to Heroku App
-This output file, `model.pth` will be the input to the heroku app.  
+
+This output file, `model.pth` is the input to the Heroku app.  
 
  
 ### Test running the web app
-This Docker image contains Python 3, Flask and fastai.
+This [Docker image](https://github.com/npatta01/food-classifier/blob/master/Dockerfile) contains Python 3, Flask and fastai.
 ```
 docker build -it app .
 docker run -it app -p 5000:5000
 ```
 
 ## Heroku Setup
-If you don't have a Heroku account, create one here: https://www.heroku.com/ 
+If you don't have a Heroku account, create one here: [www.heroku.com](https://www.heroku.com/).  Each line can be copied and submitted.  
 ```
 wget -qO- https://cli-assets.heroku.com/install-ubuntu.sh | sh
 heroku login
@@ -31,5 +32,5 @@ heroku logs --tail --app ${APP_NAME}
 ```
  
 ## Our Flask Web Application
-https://food-img-classifier.herokuapp.com
+Our Flask web app is available here:  [food-img-classifier.herokuap.com](https://food-img-classifier.herokuapp.com)
 
