@@ -4,7 +4,7 @@
 
 ### Input to Heroku App
 
-This output file, `model.pth` is the input to the Heroku app.  
+This output file, **`model.pth`** is the input to the Heroku app.  
 
  
 ### Test running the web app
@@ -32,5 +32,6 @@ heroku logs --tail --app ${APP_NAME}
 ```
  
 ## Our Flask Web Application
-Our Flask web app is available here:  [food-img-classifier.herokuap.com](https://food-img-classifier.herokuapp.com)
+- Our Flask web app is available here:  [**food-img-classifier.herokuapp.com**](https://food-img-classifier.herokuapp.com)
+- Give it a try!  Upload an image or add a URL. 
 
