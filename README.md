@@ -9,10 +9,12 @@ This is what was used for model **training**:
 
 This is what was used for model **deployment**:    
 - Heroku
-- Flask
+- Flask:  version 1.0
  
 
-## Overview Diagram
+## Table of Contents
+1.  [Training the Model](docs/1_training.md)
+2.  [Deploying the Heroku App](2_heroku.md)
 
 
 
