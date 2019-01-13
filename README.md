@@ -4,7 +4,7 @@ This project was completed jointly by [Nidhin Pattaniyil](https://www.linkedin.c
 
 This is what was used for model **training**:    
 - fastai:  version 1.0.34
-- PyTorch:  version  1.0  (dev or stable)
+- PyTorch:  version  1.0 
 - Python:  version 3.6
 
 This is what was used for model **deployment**:    
