@@ -1,4 +1,4 @@
-fastai==1.0.18
+fastai==1.0.34
 Flask==1.0.*
 
 
