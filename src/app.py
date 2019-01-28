@@ -1,6 +1,7 @@
 from fastai import *
 from fastai.vision import *
 import fastai
+import yaml
 
 from io import BytesIO
 from typing import List, Dict, Union, ByteString, Any
@@ -11,12 +12,15 @@ import requests
 import torch
 import json
 
+with open("src/config.yaml", 'r') as stream:
+    APP_CONFIG = yaml.load(stream)
+
 app = Flask(__name__)
 
 
 def load_model(classes: List[str], path=".", model_name="final"
                , architecture=models.resnet50
-               , image_size=224) -> ClassificationLearner:
+               , image_size=224):
     data = ImageDataBunch.single_from_classes(path, classes
                                               , tfms=get_transforms()
                                               , size=image_size).normalize(imagenet_stats)
@@ -36,21 +40,21 @@ def load_image_bytes(raw_bytes: ByteString) -> Image:
     return img
 
 
-def predict(img, n: int = 3) -> Dict[str, Union[str,List]]:
+def predict(img, n: int = 3) -> Dict[str, Union[str, List]]:
     pred_class, pred_idx, outputs = model.predict(img)
-    pred_probs = outputs/sum(outputs)
+    pred_probs = outputs / sum(outputs)
     pred_probs = pred_probs.tolist()
     predictions = []
     for image_class, output, prob in zip(model.data.classes, outputs.tolist(), pred_probs):
         output = round(output, 1)
-        prob = round(prob,2)
+        prob = round(prob, 2)
         predictions.append(
             {"class": image_class.replace("_", " "), "output": output, "prob": prob}
         )
 
     predictions = sorted(predictions, key=lambda x: x["output"], reverse=True)
     predictions = predictions[0:n]
-    return {"class": pred_class, "predictions": predictions}
+    return {"class": str(pred_class), "predictions": predictions}
 
 
 @app.route('/api/classify', methods=['POST', 'GET'])
@@ -76,9 +80,34 @@ def ping():
     return "pong"
 
 
+@app.route('/config')
+def config():
+    return flask.jsonify(APP_CONFIG)
+
+@app.after_request
+def add_header(response):
+    response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate, public, max-age=0"
+    response.headers["Expires"] = 0
+    response.headers["Pragma"] = "no-cache"
+
+    response.cache_control.max_age = 0
+    return response
+
+@app.route('/<path:path>')
+def static_file(path):
+    if ".js" in path or ".css" in path:
+        return app.send_static_file(path)
+    else:
+        return app.send_static_file('index.html')
+
+
 @app.route('/')
-def index():
-    return flask.render_template('index.html')
+def root():
+    return app.send_static_file('index.html')
+
+
+def before_request():
+    app.jinja_env.cache = {}
 
 
 with open('models/classes.txt', 'r') as filehandle:
@@ -87,6 +116,7 @@ model = load_model(CLASSES)
 
 if __name__ == '__main__':
     port = os.environ.get('PORT', 5000)
+
     if "prepare" not in sys.argv:
         app.jinja_env.auto_reload = True
         app.config['TEMPLATES_AUTO_RELOAD'] = True
