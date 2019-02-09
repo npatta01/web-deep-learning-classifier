@@ -167,7 +167,7 @@ class MainPage extends React.Component {
 
                     <img src={this.state.file} className={"img-preview"} hidden={!this.state.imageSelected}/>
                     <FormGroup>
-                        <Button color="primary" onClick={this._predict}> Predict</Button>
+                        <Button color="success" onClick={this._predict}> Predict</Button>
                         <span class="p-1 "/>
                         <Button color="danger" onClick={this._clear}> Clear</Button>
                     </FormGroup>
