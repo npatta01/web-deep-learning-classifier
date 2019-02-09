@@ -21,11 +21,13 @@ app = Flask(__name__)
 def load_model(classes: List[str], path=".", model_name="final"
                , architecture=models.resnet50
                , image_size=224):
-    data = ImageDataBunch.single_from_classes(path, classes
-                                              , tfms=get_transforms()
-                                              , size=image_size).normalize(imagenet_stats)
-    learn = create_cnn(data, architecture)
-    learn.load(model_name)
+    #data = ImageDataBunch.single_from_classes(path, classes
+    #                                          , tfms=get_transforms()
+     #                                         , size=image_size).normalize(imagenet_stats)
+    #learn = create_cnn(data, architecture)
+    #learn.load(model_name)
+    #learn= load_learner(path, fname='model.pkl')
+    learn= load_learner("models", fname='model.pkl')
     return learn
 
 

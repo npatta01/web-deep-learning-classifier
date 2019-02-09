@@ -1,4 +1,5 @@
-fastai==1.0.34
-Flask==1.0.*
-
+torch==1.0.0
+torchvision==0.2.1
+Flask==1.0.2
+fastai==1.0.42
 
