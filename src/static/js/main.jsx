@@ -19,8 +19,20 @@ const Form = window.Reactstrap.Form;
 const FormGroup = window.Reactstrap.FormGroup;
 const Label = window.Reactstrap.Label;
 const Input = window.Reactstrap.Input;
+
+
+const UncontrolledDropdown = window.Reactstrap.UncontrolledDropdown;
+const Dropdown = window.Reactstrap.Dropdown;
+const DropdownToggle = window.Reactstrap.DropdownToggle;
+const DropdownMenu = window.Reactstrap.DropdownMenu;
+const DropdownItem = window.Reactstrap.DropdownItem;
+const Spinner = window.Reactstrap.Spinner;
+
+
+
 const axios = window.axios;
 
+const Select = window.Select;
 
 
 //import { Button } from 'reactstrap';
@@ -50,12 +62,15 @@ class MainPage extends React.Component {
     //
 
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {
             file: null,
             predictions: [],
             imageSelected: false,
-            url: null
+            url: null,
+            isLoading: false,
+            selectedOption: null,
+
         }
     }
 
@@ -65,50 +80,54 @@ class MainPage extends React.Component {
             file: URL.createObjectURL(event.target.files[0]),
             imageSelected: true
         })
-    }
+    };
 
-    _onUrlChange = (event) => {
-        const url = event.target.value;
+    _onUrlChange = (url) => {
+        this.state.url = url;
         if ((url.length > 5) && (url.indexOf("http") === 0)) {
             this.setState({
                 file: url,
                 imageSelected: true
             })
         }
+    };
 
-    }
-
-    _clear= async (event) => {
+    _clear = async (event) => {
         this.setState({
             file: null,
             imageSelected: false,
             predictions: [],
-            rawFile: null
+            rawFile: null,
+            url: ""
         })
-    }
+    };
 
     _predict = async (event) => {
+        this.setState({isLoading: true});
 
-        let res = null;
+        let resPromise = null;
         if (this.state.rawFile) {
             const data = new FormData();
             data.append('file', this.state.rawFile);
-            res = await axios.post('/api/classify', data);
+            resPromise = axios.post('/api/classify', data);
         } else {
-            res = await axios.get('/api/classify', {
+            resPromise = axios.get('/api/classify', {
                 params: {
                     url: this.state.file
                 }
             });
-
         }
 
-        const payload = res.data;
+        try {
+            const res = await resPromise;
+            const payload = res.data;
 
-        this.setState({predictions: payload.predictions});
-        console.log(payload)
-
-    }
+            this.setState({predictions: payload.predictions, isLoading: false});
+            console.log(payload)
+        } catch (e) {
+            alert(e)
+        }
+    };
 
 
     renderPrediction() {
@@ -131,24 +150,44 @@ class MainPage extends React.Component {
         }
     }
 
+    handleChange = (selectedOption) => {
+        this.setState({selectedOption});
+        console.log(`Option selected:`, selectedOption);
+    };
+
+    sampleUrlSelected  = (item) => {
+        this._onUrlChange(item.url);
+    };
     render() {
-
-
+        const sampleImages = APP_CONFIG.sampleImages;
         return (
-
             <div>
-
-
                 <h2>{APP_CONFIG.description}</h2>
 
                 <p>Select an image </p>
-
 
                 <Form>
                     <FormGroup>
                         <div>
                             <p>Provide a Url</p>
-                            <Input name="file" onChange={this._onUrlChange}
+                            <div>
+
+                                <UncontrolledDropdown >
+                                    <DropdownToggle caret>
+                                        Sample Image Url
+                                    </DropdownToggle>
+                                    <DropdownMenu>
+                                        {sampleImages.map(si =>
+                                            <DropdownItem onClick={()=>this.sampleUrlSelected(si)}>
+                                                {si.name}
+                                            </DropdownItem>)
+                                        }
+
+                                    </DropdownMenu>
+                                </UncontrolledDropdown>
+
+                            </div>
+                            <Input value={this.state.url} name="file" onChange={(e)=>this._onUrlChange(e.target.value)}
                             />
                         </div>
                     </FormGroup>
@@ -166,11 +205,22 @@ class MainPage extends React.Component {
                     </FormGroup>
 
                     <img src={this.state.file} className={"img-preview"} hidden={!this.state.imageSelected}/>
+
                     <FormGroup>
-                        <Button color="success" onClick={this._predict}> Predict</Button>
-                        <span class="p-1 "/>
+                        <Button color="success" onClick={this._predict}
+                                disabled={this.state.isLoading}> Predict</Button>
+                        <span className="p-1 "/>
                         <Button color="danger" onClick={this._clear}> Clear</Button>
                     </FormGroup>
+
+
+                    {this.state.isLoading && (
+                        <div>
+                            <Spinner color="primary" type="grow" style={{width: '5rem', height: '5rem'}}/>
+
+                        </div>
+                    )}
+
                 </Form>
 
                 {this.renderPrediction()}

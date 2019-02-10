@@ -11,3 +11,13 @@ about:
   More info and the source code can be found [here](https://github.com/npatta01/Bird-Classifier)
 
 code: https://github.com/npatta01/food-classifier
+
+sampleImages:
+  - name: bibimbap
+    url: https://upload.wikimedia.org/wikipedia/commons/4/44/Dolsot-bibimbap.jpg
+  - name: lasagne
+    url: https://upload.wikimedia.org/wikipedia/commons/b/ba/Lasagne_-_stonesoup.jpg
+  - name: sushi
+    url: https://upload.wikimedia.org/wikipedia/commons/6/60/Sushi_platter.jpg
+  - name: waffles
+    url: https://upload.wikimedia.org/wikipedia/commons/5/5b/Waffles_with_Strawberries.jpg

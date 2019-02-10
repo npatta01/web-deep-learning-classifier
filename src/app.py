@@ -2,10 +2,10 @@ from fastai import *
 from fastai.vision import *
 import fastai
 import yaml
-
+import sys
 from io import BytesIO
 from typing import List, Dict, Union, ByteString, Any
-
+import os
 import flask
 from flask import Flask
 import requests
@@ -18,16 +18,8 @@ with open("src/config.yaml", 'r') as stream:
 app = Flask(__name__)
 
 
-def load_model(classes: List[str], path=".", model_name="final"
-               , architecture=models.resnet50
-               , image_size=224):
-    #data = ImageDataBunch.single_from_classes(path, classes
-    #                                          , tfms=get_transforms()
-     #                                         , size=image_size).normalize(imagenet_stats)
-    #learn = create_cnn(data, architecture)
-    #learn.load(model_name)
-    #learn= load_learner(path, fname='model.pkl')
-    learn= load_learner("models", fname='model.pkl')
+def load_model(path=".", model_name="model.pkl"):
+    learn = load_learner(path, fname=model_name)
     return learn
 
 
@@ -73,7 +65,7 @@ def upload_file():
 
 @app.route('/api/classes', methods=['GET'])
 def classes():
-    classes = sorted(CLASSES)
+    classes = sorted(model.data.classes)
     return flask.jsonify(classes)
 
 
@@ -86,6 +78,7 @@ def ping():
 def config():
     return flask.jsonify(APP_CONFIG)
 
+
 @app.after_request
 def add_header(response):
     response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate, public, max-age=0"
@@ -94,6 +87,7 @@ def add_header(response):
 
     response.cache_control.max_age = 0
     return response
+
 
 @app.route('/<path:path>')
 def static_file(path):
@@ -112,9 +106,7 @@ def before_request():
     app.jinja_env.cache = {}
 
 
-with open('models/classes.txt', 'r') as filehandle:
-    CLASSES = json.load(filehandle)
-model = load_model(CLASSES)
+model = load_model('models')
 
 if __name__ == '__main__':
     port = os.environ.get('PORT', 5000)
