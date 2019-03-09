@@ -1,7 +1,7 @@
-title: Food Classifier
-description: Classify food using deep learning
+title: Food Images Classifier
+description: Classify food images using deep learning
 about:
-  This is a Food Classifier using Deep Learning built on top of Pytorch.
+  This is a Food Images Classifier using Deep Learning built on top of Pytorch.
 
 
   The project was build by [Nidhin Pattaniyil](https://npatta01.github.io)
@@ -10,7 +10,7 @@ about:
 
   More info and the source code can be found [here](https://github.com/npatta01/Bird-Classifier)
 
-code: https://github.com/npatta01/food-classifier
+code: https://github.com/npatta01/web-deep-learning-classifier
 
 sampleImages:
   - name: lasagne
