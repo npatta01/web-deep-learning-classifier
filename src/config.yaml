@@ -21,4 +21,5 @@ sampleImages:
     url: https://upload.wikimedia.org/wikipedia/commons/5/5b/Waffles_with_Strawberries.jpg
   - name: eggplant (not in training data)
     url: https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Solanum_melongena_24_08_2012_%281%29.JPG/1280px-Solanum_melongena_24_08_2012_%281%29.JPG
- 
+  - name: table (not in training & not a food)
+    url: https://image.shutterstock.com/image-photo/brown-light-wooden-round-dining-260nw-588358070.jpg 
