@@ -114,5 +114,5 @@ if __name__ == '__main__':
     if "prepare" not in sys.argv:
         app.jinja_env.auto_reload = True
         app.config['TEMPLATES_AUTO_RELOAD'] = True
-        app.run(debug=True, host='0.0.0.0', port=port)
+        app.run(debug=False, host='0.0.0.0', port=port)
         # app.run(host='0.0.0.0', port=port)
