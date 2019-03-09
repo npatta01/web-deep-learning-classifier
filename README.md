@@ -1,4 +1,5 @@
 # Training the Image Classifier & Creating a Web App
+## Our example:  Food Images Classifier
 
 This project was completed jointly by [Nidhin Pattaniyil](https://www.linkedin.com/in/nidhinpattaniyil/) and [Reshama Shaikh](https://reshamas.github.io).
 
