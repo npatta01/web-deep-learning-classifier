@@ -39,7 +39,7 @@ tar xzf file.tar.gz
 We used the Resnet-50 CNN architecture.  The model took about an hour to run on GCP. 
 
 ### Training the Deep Learning Model
-The code used for training the data is available in the repository [npatta01/food-classifier](https://github.com/npatta01/food-classifier) in the notebook [1_train_large.ipynb](https://github.com/npatta01/food-classifier/blob/master/notebooks/1_train_large.ipynb)  
+The code used for training the data is available in the repository [npatta01/web-deep-learning-classifier](https://github.com/npatta01/web-deep-learning-classifier) in the notebook [1_train_large.ipynb](https://github.com/npatta01/web-deep-learning-classifier/blob/master/notebooks/1_train_large.ipynb)  
 
 ### Output from the Deep Learning Model
 The output of the deep learning model is a file with weights.  The file is called `model.pth` (or `final.pth`).  If you train the model as in this repo, the model is saved to the `models` folder.  
@@ -51,6 +51,6 @@ The `model.pth` file may be too large to be included in the git commit.  There a
 2.  Store the model on GitHub releases.
 3.  Store the model on a bucket in the cloud.  
 
-We stored our final model data file under the "releases" area of the repository:  https://github.com/npatta01/food-classifier/releases
+We stored our final model data file under the "releases" area of the repository:  https://github.com/npatta01/web-deep-learning-classifier/releases
 
  
