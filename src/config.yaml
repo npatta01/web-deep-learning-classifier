@@ -19,6 +19,6 @@ sampleImages:
     url: https://upload.wikimedia.org/wikipedia/commons/6/60/Sushi_platter.jpg
   - name: waffles
     url: https://upload.wikimedia.org/wikipedia/commons/5/5b/Waffles_with_Strawberries.jpg
-  - name: eggplant
+  - name: eggplant (not in training data)
     url: https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Solanum_melongena_24_08_2012_%281%29.JPG/1280px-Solanum_melongena_24_08_2012_%281%29.JPG
  
