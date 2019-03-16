@@ -6,7 +6,7 @@
 4.  Training the model 
 
 ## Deep learning library:  fastai
-The [fastai](https://github.com/fastai) deep learning library, version 1.0 was utilized.  Fastai runs on top of PyTorch.   The MOOC will be officially released to the public in early 2019.
+The [fastai](https://github.com/fastai/fastai) deep learning library, version 1.0 was utilized.  Fastai runs on top of PyTorch.   The [fastai MOOC](https://docs.fast.ai) was officially released to the public in early 2019.
 
 ## GPU:  Google Cloud Compute
 The data was retrieved and analyzed on Google Cloud Platform[(GCP)](console.cloud.google.com/compute/instances).  Any cloud platform (such as Paperspace or AWS) is usable, as long as a GPU is available.  Instructions for setting up a GPU working environment will be available from fastai.  
@@ -39,7 +39,7 @@ tar xzf file.tar.gz
 We used the Resnet-50 CNN architecture.  The model took about an hour to run on GCP. 
 
 ### Training the Deep Learning Model
-The code used for training the data is available in the repository [npatta01/web-deep-learning-classifier](https://github.com/npatta01/web-deep-learning-classifier) in the notebook [1_train_large.ipynb](https://github.com/npatta01/web-deep-learning-classifier/blob/master/notebooks/1_train_large.ipynb)  
+The code used for training the data is available in the repository [npatta01/web-deep-learning-classifier](https://github.com/npatta01/web-deep-learning-classifier) in the notebook [1_train.ipynb](https://github.com/npatta01/web-deep-learning-classifier/blob/master/notebooks/1_train_large.ipynb)  
 
 ### Output from the Deep Learning Model
 The output of the deep learning model is a file with weights.  The file is called `model.pth` (or `final.pth`).  If you train the model as in this repo, the model is saved to the `models` folder.  
