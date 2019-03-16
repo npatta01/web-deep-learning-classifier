@@ -3,9 +3,9 @@
 
 This project was completed jointly by [Nidhin Pattaniyil](https://www.linkedin.com/in/nidhinpattaniyil/) and [Reshama Shaikh](https://reshamas.github.io).
 
-The following were used for model **training**:    
-- fastai:  version 1.0.34
-- PyTorch:  version  1.0 
+The following were used for model **training** (see [requirements.txt](requirements.txt):    
+- fastai:  version 1.0.42
+- PyTorch:  version  1.0.0
 - Python:  version 3.6
 
 The following were used for model **deployment**:    
