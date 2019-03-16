@@ -33,10 +33,10 @@ The `tar.gz` file can be opened using:
 tar xzf file.tar.gz
 ```
 
-## Training the data:  Resnet-50 CNN
+## Training the data:  Resnet-34 CNN
 
 ### Training Time
-We used the Resnet-50 CNN architecture.  The model took about an hour to run on GCP. 
+We used the Resnet-34 CNN architecture.  The model took about an hour to run on GCP. 
 
 ### Training the Deep Learning Model
 The code used for training the data is available in the repository [npatta01/web-deep-learning-classifier](https://github.com/npatta01/web-deep-learning-classifier) in the notebook [1_train.ipynb](https://github.com/npatta01/web-deep-learning-classifier/blob/master/notebooks/1_train_large.ipynb)  
