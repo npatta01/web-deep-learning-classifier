@@ -1,14 +1,32 @@
 title: Food Images Classifier
 description: Classify food images using deep learning
 about:
+
+
   This is a Food Images Classifier using Deep Learning built on top of Pytorch.
 
 
   The project was build by [Nidhin Pattaniyil](https://npatta01.github.io)
-  and [Reshama Shaikh](https://reshamas.github.io)
+  and [Reshama Shaikh](https://reshamas.github.io).
 
 
-  More info and the source code can be found [here](https://github.com/npatta01/Bird-Classifier)
+  More info and the source code can he found below.
+
+
+  [Blog](https://reshamas.github.io/deploying-deep-learning-models-on-web-and-mobile/)
+
+  [Web app](https://food-img-classifier.herokuapp)
+
+
+  To try out this mobile app
+
+    - [Expo](https://expo.io/@npatta01/food-app)
+
+    - [Android](https://play.google.com/store/apps/details?id=com.rsnp.foodclassifier)
+
+    - [iOS](https://itunes.apple.com/us/app/food-classifier/id1445356461?ls=1&mt=8)
+
+
 
 code: https://github.com/npatta01/web-deep-learning-classifier
 

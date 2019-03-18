@@ -49,7 +49,7 @@ class About extends React.Component {
         return (
 
             <div>
-                About
+                <h1>About</h1>
                 <ReactMarkdown source={window.APP_CONFIG.about}/>
             </div>
         );
