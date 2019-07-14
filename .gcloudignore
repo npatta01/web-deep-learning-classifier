@@ -1,0 +1,6 @@
+data/*
+!data/.gitkeep 
+**/.ipynb_checkpoints/
+docs/
+README.md
+.idea
