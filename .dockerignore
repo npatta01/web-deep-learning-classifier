@@ -1,7 +1,11 @@
 data/
-models/
-!models/classes.txt
-!models/final.pth
-!models/model.pkl
+#models/
+#!models/classes.txt
+#!models/final.pth
+#!models/model.pkl
 .git
 .idea
+Dockerfile
+README.md
+notebooks
+docs
