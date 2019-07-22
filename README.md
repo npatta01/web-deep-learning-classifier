@@ -24,7 +24,10 @@ The following were used for model **deployment**:
 3.  Deploying a Mobile App, see this repo:  [npatta01/mobile-deep-learning-classifier](https://github.com/npatta01/mobile-deep-learning-classifier)
 
 
-## HOLD for SCREENSHOTS of WEB APP
+## Demo
+
+![Demo](assets/demo.gif)
+
 
  
 
