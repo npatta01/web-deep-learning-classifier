@@ -13,7 +13,7 @@ import torch
 import json
 
 with open("src/config.yaml", 'r') as stream:
-    APP_CONFIG = yaml.load(stream)
+    APP_CONFIG = yaml.full_load(stream)
 
 app = Flask(__name__)
 
