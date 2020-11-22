@@ -17,7 +17,7 @@ docker run -p 5000:5000 -it app
 ## Heroku Setup
 If you don't have a Heroku account, create one here: [www.heroku.com](https://www.heroku.com/).  Each line can be copied and submitted.  
 
-Install the cli 
+Install the cli    
 Refer to [Heroku Docs](https://devcenter.heroku.com/articles/heroku-cli) for latests instructions
 
 ```
