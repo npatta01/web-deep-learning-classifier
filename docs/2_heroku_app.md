@@ -16,8 +16,19 @@ docker run -p 5000:5000 -it app
 
 ## Heroku Setup
 If you don't have a Heroku account, create one here: [www.heroku.com](https://www.heroku.com/).  Each line can be copied and submitted.  
+
+Install the cli 
+Refer to [Heroku Docs](https://devcenter.heroku.com/articles/heroku-cli) for latests instructions
+
 ```
-wget -qO- https://cli-assets.heroku.com/install-ubuntu.sh | sh
+(mac,linux)
+curl https://cli-assets.heroku.com/install.sh | sh
+
+(windows)
+https://cli-assets.heroku.com/heroku-x64.exe
+```
+
+```
 heroku login
 heroku container:login
 
